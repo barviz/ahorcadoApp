@@ -4,6 +4,8 @@
 
 Aplicación que permite adivinar palabras averiguando cada letra, así como también jugar con las palabras personalizadas agregadas previamente.
 
+### Deployed: https://barviz.github.io/ahorcadoApp/
+
 ![ahorcado](https://user-images.githubusercontent.com/96797843/184508536-e529bcfe-6112-4e3c-a3ea-5cf0f28fafa4.png)
 
 * Funciona sólo con letras mayúsculas;
