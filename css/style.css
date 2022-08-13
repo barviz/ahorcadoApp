@@ -1,0 +1,644 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
+
+html[data-theme='light'] {
+    --lightred: rgb(250, 239, 239);
+    --darkred: rgb(187, 20, 20);
+    --background-image: radial-gradient(circle at center, rgb(255, 255, 255), rgb(230, 230, 230));
+    --background-image-contrast: radial-gradient(circle at center, rgb(221, 16, 16), rgb(187, 20, 20), rgb(221, 16, 16));
+    --background-image-grey: radial-gradient(circle at center, rgb(230, 225, 225), rgb(155, 154, 154));
+    --grey: rgb(211, 117, 117);
+    --border: rgb(187, 20, 20);
+    --border: rgb(250, 239, 239);
+}
+
+html[data-theme='dark'] {
+    --lightred: rgb(187, 20, 20);
+    --darkred: rgb(250, 239, 239);
+    --background-image: radial-gradient(circle at center, rgb(221, 16, 16), rgb(187, 20, 20), rgb(221, 16, 16));
+    --background-image-contrast: radial-gradient(circle at center, rgb(255, 255, 255), rgb(230, 230, 230));
+    --background-image-grey: radial-gradient(circle at center, rgb(230, 225, 225), rgb(197, 194, 194));
+    --grey: rgb(211, 117, 117);
+    --border: rgb(250, 239, 239);
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-image: var(--background-image);
+    font-family: 'Secular One', sans-serif;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+#modoOscuro {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 120px;
+    height: 60px;
+}
+
+.modo {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 25px;
+}
+
+.modo input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.desliz {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(231, 226, 226);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.desliz:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    bottom: 3px;
+    background-color: rgb(233, 25, 25);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.desliz {
+    background-color: var(--darkred);
+}
+
+input:focus+.desliz {
+    box-shadow: 0 0 0;
+}
+
+input:checked+.desliz:before {
+    -webkit-transform: translateX(15px);
+    -ms-transform: translateX(15px);
+    transform: translateX(15px);
+    background-color: var(--lightred);
+}
+
+.desliz.circulo {
+    border-radius: 15px;
+}
+
+.desliz.circulo:before {
+    border-radius: 50%;
+}
+
+.centradoFila {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.centradoCol {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicioCol {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.espacioCol {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+}
+
+.button {
+    width: 100%;
+    font-size: 15px;
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--darkred), 0 0 40px var(--darkred), 0 0 80px var(--darkred);
+    transition-delay: 10ms;
+}
+
+.superior {
+    background-image: var(--background-image-contrast);
+    color: var(--lightred);
+    border: 1px solid var(--lightred);
+    font-family: 'Suez One', serif;
+    letter-spacing: 0.5px;
+}
+
+.inferior {
+    background-color: transparent;
+    color: var(--darkred);
+    border: 1px solid var(--darkred);
+    font-family: 'Suez One', serif;
+    letter-spacing: 0.5px;
+}
+
+.guionBajo {
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+    border-bottom: 4px solid var(--darkred);
+    font-size: 30px;
+    color: var(--grey)
+}
+
+.tecladoLetra {
+    font-family: 'Silkscreen', cursive;
+    margin: 5px 5px;
+    height: 33px;
+    width: 35px;
+    border-radius: 5px;
+    background-image: var(--background-image-contrast);
+    color: var(--lightred);
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.tecladoLetra:hover {
+    background: transparent;
+    color: var(--darkred);
+    box-shadow: 0 0 10px var(--darkred), 0 0 40px var(--darkred), 0 0 80px var(--darkred);
+}
+
+.pressed {
+    opacity: 0.5;
+}
+
+.pressed:hover {
+    background-image: var(--background-image-contrast);
+    color: var(--lightred);
+    opacity: 0.5;
+}
+
+header {
+    height: 16%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#containerHeader {
+    width: 800px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#containerLogo {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 120px;
+    height: 60px;
+    animation: animacion 10s linear infinite;
+}
+
+main {
+    height: 80%;
+    z-index: 1;
+}
+
+#seccionInicio {
+    display: flex;
+}
+
+.primeraPantalla {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0%;
+    height: 100%;
+    background-image: var(--background-image);
+    z-index: 999;
+    animation: pantallaSalida;
+    animation-duration: 1s;
+    animation-timing-function: linear
+}
+
+@keyframes pantallaSalida {
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+}
+
+.pantallaEntrada {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0%;
+    background-image: var(--background-image);
+    z-index: 999;
+    animation: pantallaEntrada;
+    animation-duration: 1s;
+    animation-timing-function: linear
+}
+
+@keyframes pantallaEntrada {
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+
+    50% {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+}
+
+#seccionAgregarPalabra {
+    display: none;
+    width: 250px;
+    height: 50%;
+}
+
+#seccionJuego {
+    display: none;
+    width: 650;
+    height: 85%;
+    position: relative;
+}
+
+#mensajePantalla {
+    font-family: 'Black Ops One', cursive;
+    position: absolute;
+    padding: 30px 0px;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+    transform: rotate(-7deg);
+    text-shadow:
+        -3px 3px 0 var(--border),
+        3px 3px 0 var(--border),
+        3px -3px 0 var(--border),
+        -3px -3px 0 var(--border),
+        0 0 30px grey;
+}
+
+.green {
+    color: rgb(75, 175, 75);
+    top: 25%;
+    font-size: 77px;
+    animation: blinding;
+    animation-duration: 0.75s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear
+}
+
+.red {
+    color: rgb(175, 75, 75);
+    top: 10%;
+    font-size: 100px;
+    animation: blinding;
+    animation-duration: 0.75s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear
+}
+
+@keyframes blinding {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#palabraIncognita {
+    font-family: 'Space Mono', monospace;
+    padding: 10px 0px;
+    width: 300px;
+    border-radius: 5%;
+    text-align: center;
+    font-size: 15px;
+    display: none;
+    background-image: linear-gradient(to left, transparent, grey 20%, grey 70%, transparent);
+    color: white;
+}
+
+#ahorcado {
+    width: 350px;
+    height: 325px;
+    margin-bottom: 5%;
+    position: relative;
+}
+
+#ahorcado canvas {
+    width: 100%;
+    height: 100%;
+}
+
+#letraAcierto {
+    font-family: 'Fredoka One', cursive;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#letraDesacierto {
+    font-family: 'Fredoka One', cursive;
+    width: 100%;
+    height: 16px;
+    margin: 10px;
+    color: var(--grey);
+    text-decoration: line-through
+}
+
+#juegoBotones {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    margin: 5px;
+}
+
+#agregarPalabraInput {
+    border: none;
+    outline: none;
+    resize: none;
+    font-family: 'Chakra Petch', sans-serif;
+    text-align: center;
+    background: transparent;
+    color: var(--darkred);
+    font-size: 25.2px;
+}
+
+#agregarPalabraInput::placeholder {
+    font-family: 'Chakra Petch', sans-serif;
+    letter-spacing: 0.5px;
+    color: var(--grey);
+    background: transparent;
+}
+
+#aviso p {
+    color: var(--darkred);
+    margin-left: 10px;
+}
+
+#agregarPalabraConfirm {
+    position: absolute;
+    text-align: center;
+    box-shadow: 0 0 10px grey;
+    color: white;
+}
+
+.color-green {
+    width: 250px;
+    top: -52px;
+    padding: 10px;
+    background-color: rgb(75, 175, 75);
+    animation: appears;
+    animation-duration: 4s;
+    animation-timing-function: linear
+}
+
+.color-red {
+    width: 250px;
+    top: -52px;
+    padding: 10px;
+    background-color: rgba(175, 75, 75);
+    animation: appears;
+    animation-duration: 4s;
+    animation-timing-function: linear
+}
+
+@keyframes appears {
+    0% {
+        top: -52px
+    }
+
+    10% {
+        top: 5px
+    }
+
+    90% {
+        top: 5px
+    }
+
+    100% {
+        top: -52px;
+    }
+}
+
+footer {
+    display: flex;
+    flex-flow: row wrap;
+    background-image: var(--background-image-contrast);
+    color: var(--lightred);
+}
+
+footer p {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.main-movil {
+    height: 80%;
+}
+
+.footer-movil {
+    display: none;
+}
+
+@media (max-width: 650px) {
+    #juegoBotones {
+        width: 310px;
+    }
+
+    #seccionJuego {
+        display: none;
+        width: 320px;
+        height: 85%;
+    }
+
+    #ahorcado {
+        width: 250px;
+        height: 225px;
+    }
+
+    #mensajePantalla {
+        width: cal(250px(175px/2));
+        height: 175px;
+        top: 0px;
+    }
+
+    .green {
+        font-size: 55px;
+    }
+
+    .red {
+        font-size: 70px;
+    }
+
+    .tecladoLetra {
+        width: 23px;
+        margin: 3px;
+    }
+
+    .button {
+        margin: 5px 5px;
+    }
+
+    footer p {
+        width: 250px;
+    }
+}
+
+@media (max-height: 700px) {
+    #containerHeader {
+        height: 15%;
+    }
+
+    #containerLogo {
+        width: 55px;
+    }
+
+    #modoOscuro {
+        width: 100px;
+    }
+
+    main {
+        height: 70%;
+    }
+
+    #seccionJuego {
+        height: 530px;
+    }
+
+    #ahorcado {
+        width: 175px;
+        height: 150px;
+    }
+
+    #ahorcado canvas {
+        width: 100%;
+        height: 100%;
+    }
+
+    #letraAcierto {
+        width: 320px;
+        height: 35px;
+    }
+
+    .guionBajo {
+        width: 20px;
+        height: 30px;
+    }
+
+    .tecladoLetra {
+        width: 23px;
+        margin: 3px;
+    }
+
+    .button {
+        padding: 8px;
+    }
+
+    #mensajePantalla {
+        width: cal(250px(175px/2));
+        height: 175px;
+        top: -50px;
+    }
+
+    .green {
+        font-size: 38px;
+    }
+
+    .red {
+        font-size: 50px;
+    }
+
+    footer {
+        height: 10%;
+        font-size: 14px;
+        float: inherit;
+    }
+
+    footer p {
+        width: 225px;
+    }
+}
+
+@keyframes animacion {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.3);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
